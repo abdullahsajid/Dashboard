@@ -1,39 +1,56 @@
-.App {
-  text-align: center;
+/* *{
+  border: 1px solid red;
+} */
+.gray{
+  color: #726F7B;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading{
+  color: #5D5A68;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.signup--logo{
+  fill: rgb(115,103,240);
 }
-
-.App-header {
-  min-height: 100vh;
+.label--heading{
+  font-size: .8125rem!important;
+  font-weight: 500!important;
+}
+.signup--parenet{
+  max-width: 450px;
   display: flex;
-  flex-direction: column;
+  flex: 1 0 auto;
+  height: 100% !important;
+  overflow: hidden;
+  /* margin-top: 64px;
+  margin-bottom: 8px; */
+}
+.signup--banner{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+.position-relative{
+  position: relative;
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 1em;
+  margin-right: 0 !important;
+}
+.hr{
+  flex: 1 1 100%;
+}
+.social--btns{
+  width: 38px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
 }
-
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.social--btns span svg{
+  font-size: 18px;
+    height: 18px;
+    width: 18px;
 }
