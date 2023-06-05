@@ -1,5 +1,5 @@
 ### Progress 
-    Build Sign up Component 
+    Build Sign up , Login and Forget password Component 
 ### UI library
     react bootstrap 
 # Getting Started with Create React App and Redux
