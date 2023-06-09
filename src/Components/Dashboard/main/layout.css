@@ -1,0 +1,8 @@
+.mainLayout{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    /* max-width: 100%; */
+    padding-inline-start: 260px;
+    min-block-size: calc(6.74px, 1vh * 100);
+}

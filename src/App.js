@@ -4,12 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from './Components/login/Login'
 import Signup from './Components/signup/Signup'
 import Main from './Components/ForgetPass/Main';
+import Dashboard from './Components/Dashboard/Main'
 function App() {
   return (
     <>
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<Login/>}/>
+        {/* <Route exact path='/' element={<Login/>}/> */}
+        <Route exact path='/' element={<Dashboard/>}/>
         <Route exact path='/register' element={<Signup/>}/>
         <Route exact path='/forget-password' element={<Main/>}/>
       </Routes>
