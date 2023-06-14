@@ -3,7 +3,7 @@ import './header.css'
 import avatar from '../../../../images/avatar.png'
 const Header = () => {
   return (
-    <div className='header-layout'>
+    <div className='header-layout nav-blur'>
       <div className='navbar-container'>
         <div class="d-flex h-100 align-center justify-content-between background-style">
           <div className='d-flex align-items-center'>

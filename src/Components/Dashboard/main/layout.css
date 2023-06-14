@@ -1,8 +1,15 @@
 .mainLayout{
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* max-width: 100%; */
     padding-inline-start: 260px;
     min-block-size: calc(6.74px, 1vh * 100);
+    transition: padding-inline-start .2s ease-in-out;
+    will-change: padding-inline-start;
 }
+@media (max-width: 70em) {
+    .mainLayout{
+        padding-inline-start: 0;
+    }
+  }

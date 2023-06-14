@@ -1,15 +1,34 @@
 .header-layout{
     inset-block-start: 1rem;
     position: sticky;
-    inline-size: 1260px;
+    inline-size: 100%;
     margin-inline: auto;
     max-inline-size: 1440px;
     z-index: 11;
     padding-inline: 1.5rem;
+    min-block-size: calc(6.74px, 1vh * 100);
+    transition: padding-inline-start .2s ease-in-out;
+    will-change: padding-inline-start;
 }
 
+.nav-blur::after{
+    position: absolute;
+    z-index: -1;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-repeat: repeat;
+    block-size: calc(64px + 1.5rem);
+    content: "";
+    inset-block-start: -1rem;
+    inset-inline-end: 0;
+    inset-inline-start: 0;
+    -webkit-mask: linear-gradient(black,black 18%,transparent 100%);
+    mask: linear-gradient(black,black 18%,transparent 100%);
+}
 .navbar-container{
     block-size: 64px;
+    backdrop-filter: blur(6px);
+    background-color: rgb(255,255,255,.9);
 }
 .search-icon{
     /* border-color: rgba(47,43,61,0.16); */
@@ -17,6 +36,7 @@
     border-width: 0;
     height: 38px;
     margin-right: 1rem;
+    background-color: #fff;
 }
 .shortkey{
     border: thin solid rgba(47,43,61,0.16);
@@ -38,6 +58,7 @@
     border: none;
     outline: none;
     margin: 0 .7rem;
+    background-color: #fff;
 }
 .nav-icons svg{
     width: 26px;
