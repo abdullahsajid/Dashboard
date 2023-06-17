@@ -6,7 +6,7 @@ import TotalEarn from './Sales/TotalEarn'
 import Earnreport from './Sales/Earnreport'
 const Mainlayout = () => {
     return (
-        <div className='layout-content'>
+        <div className='git '>
             <div>
                 <div className='row'>
                     <Saleoverview/>
