@@ -5,6 +5,7 @@ import './ReportLayout.css'
 import Stats from './reportComponent/Stats'
 import Profit from './reportComponent/Profit'
 import RevenueReport from './reportComponent/RevenueReport'
+import Transaction from './reportComponent/Transaction'
 const Report = () => {
   return (
       <div className='layout-content'>
@@ -13,6 +14,7 @@ const Report = () => {
             <Stats/>
             <Profit/>
             <RevenueReport/>
+            <Transaction/>
           </div>
         </div>
       </div>
