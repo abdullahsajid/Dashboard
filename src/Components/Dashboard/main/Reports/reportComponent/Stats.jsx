@@ -1,8 +1,8 @@
 import React from 'react'
 const Stats = () => {
   return (
-    <div className='col-sm-12 col-md-7 col-lg-12 mb-3'>
-        <div className='card'>
+    <div className='col-sm-12 col-md-7 col-lg-12 mb-4'>
+        <div className='card h-100'>
             <div className='card-item'>
                 <div className='card-item-content'>
                     <div class="card-title">Statistics</div>

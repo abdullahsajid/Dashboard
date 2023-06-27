@@ -92,7 +92,7 @@ const Visitor = () => {
       })
   return (
     <div className='col-12 mb-3'>
-      <div className='card'>
+      <div className='card h-100'>
         <div className='d-flex justify-content-between' style={{padding:'24px'}}>
             <div className='d-flex flex-column'>
                 <div className='mb-auto'>

@@ -68,8 +68,8 @@ const TotalEarn = () => {
       
       })
   return (
-    <div className='col-sm-12 col-md-6 col-lg-6 mb-3'>
-        <div className='card'>
+    <div className='col-sm-12 col-md-6 col-lg-6 mb-4'>
+        <div className='card h-100'>
             <div className='card-item pb-0'>
                 <div className='card-item-content'>
                     <div data-v-df741ecb="" class="card-title">Total Earning</div>
@@ -100,7 +100,7 @@ const TotalEarn = () => {
                                 <div class="sale-item-subtitle text-disabled">Total Sales</div>
                             </div>
                             <div className='sale-profit'>
-                                <span data-v-df741ecb="" class="text-success font-weight-medium">+$98</span>
+                                <span data-v-df741ecb="" class="text-success font-weight-medium">+PKR 98</span>
                             </div>
                         </div>
                     </div>

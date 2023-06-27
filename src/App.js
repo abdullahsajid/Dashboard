@@ -7,6 +7,8 @@ import Main from './Components/ForgetPass/Main';
 import Dashboard from './Components/Dashboard/Main'
 import Report from './Components/Dashboard/main/Reports/Report'
 import MainContent from './Components/Dashboard/main/MainContent';
+import InvoiceTable from './Components/Dashboard/main/invoice/InvoiceTable';
+import MainInvoice from './Components/Dashboard/main/createInvoice/MainInvoice';
 function App() {
   return (
     <>
@@ -18,6 +20,8 @@ function App() {
         <Route exact path='/dashboard' element={<Dashboard/>}>
           <Route index element={<MainContent/>}/>
           <Route path='/dashboard/report' element={<Report/>}/>
+          <Route path='/dashboard/invoice' element={<InvoiceTable/>}/>
+          <Route path='/dashboard/add' element={<MainInvoice/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

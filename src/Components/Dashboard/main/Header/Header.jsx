@@ -14,7 +14,7 @@ const Header = () => {
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0-14 0m18 11l-6-6"></path></svg>
                 </span>
               </button>
-              <span className='d-flex align-items-center'>
+              <span className='d-none d-lg-flex align-items-center'>
                 <span className='me-3'>Search</span>
                 <span className='shortkey'>⌘K</span>
               </span>

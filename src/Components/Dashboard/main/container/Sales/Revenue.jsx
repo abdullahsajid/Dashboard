@@ -46,8 +46,8 @@ const Revenue = () => {
       
       })
   return (
-    <div className='col-sm-12 col-md-6 col-lg-6 mb-3'>
-        <div className='card'>
+    <div className='col-sm-12 col-md-6 col-lg-6 mb-4'>
+        <div className='card h-100'>
             <div className='d-flex flex-column pad pb-0'>
                 <div className='wallet'>
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" tag="i" width="1em" height="1em" viewBox="0 0 24 24">

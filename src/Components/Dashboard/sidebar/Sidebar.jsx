@@ -1,6 +1,7 @@
 import React from 'react'
 import './sidebar.css'
 import { Link } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown';
 const Sidebar = () => {
   return (
     <div className='sidebar'>
@@ -14,7 +15,7 @@ const Sidebar = () => {
               <path fill-rule="evenodd" clip-rule="evenodd" d="M8.25781 17.6914L25.1339 0.3125H33.9991V7.62657C33.9991 7.62657 33.8144 10.0645 32.5743 11.3686L21.0179 23.6875H14.5487L8.25781 17.6914Z" fill="currentColor"></path>
             </svg>
           </div>
-          <div><h1>Dashboard</h1></div>
+          <div><h1>Vuexy</h1></div>
         </a>
         <div className='nav-head-remove-add-btn'>
           <svg xmlns="http://www.w3.org/2000/svg"  role="button" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
@@ -29,11 +30,11 @@ const Sidebar = () => {
           <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
           <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
             <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Sales</span>
+            <span class="nav-item-title">dashboard</span>
         </Link>
       </li>
       <li class="nav-link">
-        <Link to="/dashboard/report" >
+        <Link to="/dashboard" >
           <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
           <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
             <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
@@ -41,20 +42,20 @@ const Sidebar = () => {
         </Link>
       </li>
       <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
+        <Link to="/dashboard" >
           <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
           <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
             <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Growth</span>
-        </a>
+            <span class="nav-item-title">Invoice</span>
+        </Link>
       </li>
       <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
+        <Link to="/dashboard" >
           <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
           <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
             <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Monthly Earning</span>
-        </a>
+            <span class="nav-item-title">Create invoice</span>
+        </Link>
       </li>
       <li class="nav-link">
         <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >

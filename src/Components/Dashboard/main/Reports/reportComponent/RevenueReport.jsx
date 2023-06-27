@@ -96,7 +96,7 @@ const RevenueReport = () => {
       })
 
   return (
-    <div className="col-lg-8 col-12">
+    <div className="col-lg-8 col-12 mb-4">
         <div className="card">
             <div className="row">
                 <div className="col-sm-8 col-lg-8 col-12">
@@ -111,7 +111,7 @@ const RevenueReport = () => {
                 <div className='col-sm-4 col-12'>
                     <div className='d-flex flex-column justify-content-center align-items-center h-100' style={{position:"relative",padding:"24px"}}>
                         <div className='d-flex flex-column'>
-                            <h3 class="font-weight-medium text-h3"> $25,825 </h3>
+                            <h3 class="font-weight-medium text-h3"> PKR 25,825 </h3>
                             <p>
                                 <span class="text-high-emphasis font-weight-medium me-1">Budget:</span>
                                 <span>56,800</span>

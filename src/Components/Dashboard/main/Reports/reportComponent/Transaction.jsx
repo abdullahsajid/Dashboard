@@ -5,8 +5,8 @@ import mastercard from '../../../../../images/mastercard.png'
 import americanExp from '../../../../../images/americanExp.png'
 const Transaction = () => {
   return (
-    <div className='col-md-6 col-12'>
-        <div className='card'>
+    <div className='col-md-6 col-12 mb-4'>
+        <div className='card h-100'>
             <div className='card-item'>
                 <div className='card-item-content'>
                     <div class="card-title">Recent Transactions</div>
@@ -32,6 +32,8 @@ const Transaction = () => {
                             <TransRow img={mastercard} cardNo={'5489'} date={'13 May 2023'} status={'Pending'} trend={'+890'}/>
                             <TransRow img={visa} cardNo={'5278'} date={'7 Feb 2023'} status={'Verified'} trend={'+649'}/>
                             <TransRow img={mastercard} cardNo={'5123'} date={'20 Jan 2023'} status={'Verified'} trend={'-200'}/>
+                            <TransRow img={mastercard} cardNo={'5489'} date={'13 May 2023'} status={'Pending'} trend={'+890'}/>
+                            <TransRow img={visa} cardNo={'5278'} date={'7 Feb 2023'} status={'Verified'} trend={'+649'}/>
                         </tbody>
                     </table>
                 </div>
