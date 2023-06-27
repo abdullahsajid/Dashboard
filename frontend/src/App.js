@@ -7,6 +7,8 @@ import Main from './Components/ForgetPass/Main';
 import Dashboard from './Components/Dashboard/Main'
 import Report from './Components/Dashboard/main/Reports/Report'
 import MainContent from './Components/Dashboard/main/MainContent';
+import { ToastContainer } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
@@ -21,6 +23,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    <ToastContainer/>
     </>
   );
 }

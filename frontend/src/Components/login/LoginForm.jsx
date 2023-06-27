@@ -1,6 +1,45 @@
+import { useEffect, useState } from 'react';
 import {Form, Stack,Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { loginUser } from '../../features/auth/authSlice';
 const LoginForm = ({heading,title}) => {
+    // initialze the state values for the form
+    const [formFields, setFormFields] = useState({
+        email:'',password:''
+    });
+    // destructure the form fields
+    const { email, password } = formFields;
+    // handle the change
+    const handleChange = (e) => {
+        setFormFields((prevValue) => ({
+            ...prevValue,
+            [e.target.name]: e.target.value,
+        }));
+    };
+    // initialize navigation and dispatching
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    // get the states from redux store
+    const { isError, isSuccess, message, user } = useSelector(state => state.auth);
+    
+    // handle the third party
+    useEffect(()=>{
+        if (isError) {
+            toast(message)
+        } if (isSuccess || user) {
+            navigate('/dashboard')
+        }
+    },[isError,isSuccess,message,user,navigate])
+    // handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            email,password
+        }
+        dispatch(loginUser(userData));
+    }
     return (
         <>
             <Stack direction='vertical' className='p-4'>
@@ -19,11 +58,11 @@ const LoginForm = ({heading,title}) => {
                 <Form style={{ width: "100%" }}>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label className='label--heading gray'>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control name="email" value={email} onChange={handleChange} type="email" placeholder="Enter email" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
                         <Form.Label className='label--heading gray'>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control name="password" value={password} onChange={handleChange} type="password" placeholder="Password" />
                     </Form.Group>
                     <Stack direction='horizontal' className='d-flex justify-content-between'>
                         <Stack direction='horizontal'>
@@ -36,7 +75,7 @@ const LoginForm = ({heading,title}) => {
                             <Link to="/forget-password"  style={{ textDecoration: "none", color: "rgb(115,103,240)",cursor:'pointer' }}>Forgot Password? </Link>
                         </Stack>
                     </Stack>
-                    <Button style={{ width: "100%", backgroundColor: "#7367F0" }}>login</Button>
+                    <Button type="submit" onClick={handleSubmit} style={{ width: "100%", backgroundColor: "#7367F0" }}>login</Button>
                 </Form>
                 <Stack direction='horizontal' className='mx-auto mt-3'>
                     <div className='gray'>New on our platform?</div>

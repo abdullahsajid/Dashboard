@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './dashboard.css'
 import './main/layout.css'
 import Sidebar from './sidebar/Sidebar'
 import Header from './main/Header/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
+  const { user } = useSelector(state => state.auth);
+  // use navigation 
+  const navigate = useNavigate()
+  // redirect back to the login, if no user is logged in
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  },[navigate,user])
   return (
     <>
     <div className='app'>

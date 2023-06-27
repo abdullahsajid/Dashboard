@@ -1,6 +1,36 @@
+import { useEffect, useState } from 'react';
 import {Form, Stack,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { sendResetMail } from '../../features/auth/authSlice';
+import {useDispatch, useSelector} from 'react-redux'
+import { toast } from 'react-toastify';
 const ForgetForm = ({heading,title}) => {
+    const [email, setEmail] = useState('');
+    // this is a test comment
+    // get the states
+    const { isLoading, isError, isSuccess, message } = useSelector(state => state.auth);
+    // initialize dispatch function
+    const dispatch = useDispatch()
+    // handle the third party
+    useEffect(() => {
+        if (isError) {
+            toast.error(message);
+            alert(message)
+        } else if (isSuccess) {
+            toast.success('Email Sent Successfully!');
+            alert('Sent successfully')
+        }
+    }, [isError, isSuccess, message]);
+
+    
+    // handle the sent email
+    const handleReset = (e) => {
+        e.preventDefault();
+        dispatch(sendResetMail({email}));
+    }
+    if (isLoading) {
+        return <h1>Loading...</h1>
+    }
     return (
         <>
             <Stack direction='vertical' className='p-4'>
@@ -19,9 +49,9 @@ const ForgetForm = ({heading,title}) => {
                 <Form style={{ width: "100%" }}>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label className='label--heading gray'>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter email" />
                     </Form.Group>
-                    <Button style={{ width: "100%", backgroundColor: "#7367F0" }}>Send Reset Link</Button>
+                    <Button type='submit' onClick={handleReset} style={{ width: "100%", backgroundColor: "#7367F0" }}>Send Reset Link</Button>
                 </Form>
                 <Stack direction='horizontal' className='mx-auto mt-3'>
                     <div className='ms-3 gray'><Link to='/' style={{ textDecoration: "none", color: "rgb(115,103,240)" }}> {'<'} Back to login</Link></div>
