@@ -19,6 +19,8 @@ app.use(express.urlencoded({extended:false}))
 app.use('/api/users',require('./routes/userRoutes'))
 // handle reset password
 app.use('/api/users/reset-password', require('./routes/resetPasswordRoute'))
+// handle the visitor routes
+app.use('/api/visitors/',require('./routes/visitorRoutes'))
 // check for errors
 app.use(errorHandler)
 

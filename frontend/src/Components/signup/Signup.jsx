@@ -1,8 +1,22 @@
+import { React, useEffect } from 'react';
 import {Row, Col} from 'react-bootstrap';
 import Banner from './Banner';
 import SignUpForm from './SignUpForm';
 import signUpImg from '../../images/signup.png'
+import axios from 'axios';
+import { toast } from 'react-toastify';
 const Signup = () => {
+    // update the count whenever user visits the login
+    const updateCount = async () => {
+        try{
+        await axios.post('http://localhost:3001/api/visitors/track');
+        } catch (error) {
+        toast(error);
+        }
+    }
+    useEffect(() => {
+        updateCount();
+    },[])
     return (
         <div style={{ overflow: 'hidden' }}>
             <Row style={{ height: '100vh', alignItems: 'center', overflowX: "hidden" }}>
