@@ -3,10 +3,6 @@
     added some dashboard components 
 ### UI library
     react bootstrap 
-### Dashboard
-![ezgif com-crop](https://github.com/abdullahsajid/dashboard/assets/77003390/986ea3a6-c578-4227-a859-020ce136aadf)
-
-
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
