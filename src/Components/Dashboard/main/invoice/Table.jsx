@@ -71,8 +71,8 @@ const Tablee = () => {
         []
       );
   return (
-    <div className='col-12 mb-4'>  
-        <div className='card'>
+    <div className='col-12 col-lg-8 mb-4'>  
+        <div className='card h-100 w-100'>
             <div className='d-flex align-items-center flex-wrap gap-4 p-3'>
                 <div className='d-flex gap-3'>
                     <Link to="/dashboard/add" className='create-invoice-btn'>

@@ -12,6 +12,7 @@ import Transaction from '../Reports/reportComponent/Transaction'
 import Tablee from '../invoice/Table'
 import Add from '../createInvoice/Add'
 import BtnSection from '../createInvoice/BtnSection'
+import PaymentComp from '../payment/PaymentComp'
 const Mainlayout = () => {
     return (
         <div className='layout-content'>
@@ -26,6 +27,7 @@ const Mainlayout = () => {
                     <RevenueReport/>
                     <ByOrder/>
                     <Transaction/>
+                    <PaymentComp/>
                     <Tablee/>
                     <Add/>
                     <BtnSection/>
