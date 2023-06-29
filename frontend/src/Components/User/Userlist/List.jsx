@@ -1,81 +1,109 @@
-import { useMemo,useState } from 'react';
-import { MaterialReactTable } from 'material-react-table'
-import './user.css'
+import { useMemo, useState, useEffect } from 'react';
+import { MaterialReactTable } from 'material-react-table';
+import './user.css';
 import UserNav from './UserNav';
-const data = [
-    {
-        user:"Abdullah",
-        role:"user",
-        action:""
-    },
-    {
-        user:"Ali",
-        role:"admin",
-        action:""
-    },
-    {
-        user:"Ahmad",
-        role:"admin",
-        action:""
-    },
-    {
-        user:"hamza",
-        role:"super admin",
-        action:""
-    },
-  ];
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllUsers } from '../../../features/auth/authSlice';
+import { toast } from 'react-toastify';
+import Spinner from '../../Spinner/Spinner';
+
 const List = () => {
-    const columns = useMemo(
-        () => [
-          {
-            accessorKey: "user",
-            header: "USER",
-            muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
-          },
-          {
-            accessorKey:'role',
-            header: "ROLE",
-            muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
-          },
-          {
-            accessorKey:'action',
-            header: "ACTIONS",
-            muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
-          }
-        ],
-        []
-      );
-      const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const { isLoading, isError, isSuccess, allUsers, message } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isError) {
+      toast(message);
+    }
+    dispatch(getAllUsers());
+  }, []);
+
+  useEffect(() => {
+    if (allUsers.length > 0) {
+      const modifiedData = allUsers.map(user => ({
+        ...user,
+        role: getRoleName(user.role)
+      }));
+      setData(modifiedData);
+    }
+  }, [allUsers]);
+
+  const getRoleName = (role) => {
+    switch (role) {
+      case 0:
+        return 'User';
+      case 1:
+        return 'Admin';
+      case 2:
+        return 'Super Admin';
+      default:
+        return '';
+    }
+  };
+
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: 'name',
+        header: 'USER',
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+      },
+      {
+        accessorKey: 'email',
+        header: 'EMAIL',
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+      },
+      {
+        accessorKey: 'role',
+        header: 'ROLE',
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+      },
+      {
+        accessorKey: 'action',
+        header: 'ACTIONS',
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+      }
+    ],
+    []
+  );
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <div className='layout-content'>
-        <div>
-            <div className='row'>
-                <div className='col-12'>
-                    <div className='card'>
-                        <div className='d-flex align-items-center flex-wrap gap-4 p-3'>
-                            <div className='d-flex gap-3'>
-                                <a className='create-invoice-btn' onClick={toggleSidebar} style={{cursor:"pointer"}}>
-                                    <span className='btn-prepend'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
-                                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m-7-7h14"></path>
-                                        </svg>
-                                    </span>
-                                    <span className='btn-content'>Add New User</span>
-                                </a>
-                            </div>
-                        </div>
-                        <MaterialReactTable columns={columns} data={data}/>
-                    </div>
-                    <UserNav isOpen={isOpen} toggle={toggleSidebar}/>
+      <div>
+        <div className='row'>
+          <div className='col-12'>
+            <div className='card'>
+              <div className='d-flex align-items-center flex-wrap gap-4 p-3'>
+                <div className='d-flex gap-3'>
+                  <a className='create-invoice-btn' onClick={toggleSidebar} style={{ cursor: 'pointer' }}>
+                    <span className='btn-prepend'>
+                      <svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' role='img' tag='i' width='1em' height='1em' viewBox='0 0 24 24'>
+                        <path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' d='M12 5v14m-7-7h14'></path>
+                      </svg>
+                    </span>
+                    <span className='btn-content'>Add New User</span>
+                  </a>
                 </div>
+              </div>
+              <MaterialReactTable columns={columns} data={data} />
             </div>
+            <UserNav isOpen={isOpen} toggle={toggleSidebar} />
+          </div>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;

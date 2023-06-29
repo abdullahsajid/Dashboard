@@ -24,10 +24,29 @@ const sendResetMail = async (userData) => {
 }
 
 
+const addNewUser = async(userData,token) => {
+    const config = {
+        headers: {
+            Authorization:`Bearer ${token}`
+        }
+    }
+    const response = await axios.post(`${URL}/add-new-user`,userData,config)
+    return response.data;
+}
+
+
+const getAllUsers = async () => {
+    const response = await axios.get(`${URL}/get-users`);
+    return response.data;
+}
+
+
 const authService = {
     registerUser,
     loginUser,
-    sendResetMail
+    sendResetMail,
+    addNewUser,
+    getAllUsers
 }
 
 export default authService;
