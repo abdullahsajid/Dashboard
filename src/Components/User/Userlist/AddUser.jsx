@@ -2,7 +2,7 @@ import Inputfield from "./Inputfield"
 import { FormControl,Select, MenuItem } from "@mui/material"
 const AddUser = () => {
   return (
-    <div className="" style={{boxShadow:"none"}}>
+    <div style={{boxShadow:"none"}}>
         <div style={{padding:"24px"}}>
             <form action="">
                 <div className="row">

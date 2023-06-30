@@ -82,3 +82,17 @@
 .dis{
     transform: translateX(110%);
 }
+.updateBtn{
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-radius: 6px;
+
+}
+.updateBtn svg{
+    font-size: 22px;
+    height: 22px;
+    width: 22px;
+    stroke: rgb(132,129,140);
+    border-radius: 6px;
+}

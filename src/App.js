@@ -11,6 +11,7 @@ import InvoiceTable from './Components/Dashboard/main/invoice/InvoiceTable';
 import MainInvoice from './Components/Dashboard/main/createInvoice/MainInvoice';
 import UserList from './Components/User/UserList';
 import List from './Components/User/Userlist/List';
+import MainCategoryCom from './Components/Category/MainCategoryCom';
 function App() {
   return (
     <>
@@ -29,7 +30,9 @@ function App() {
 
         <Route exact path='/user' element={<UserList/>}>
           <Route index element={<List/>}/>
+          <Route path='/user/category' element={<MainCategoryCom/>}/>
         </Route>
+
 
       </Routes>
     </BrowserRouter>
