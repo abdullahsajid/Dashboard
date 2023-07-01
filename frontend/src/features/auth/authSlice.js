@@ -1,4 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+    createAsyncThunk,
+    createSlice
+} from '@reduxjs/toolkit';
 import authService from './authService';
 
 
@@ -9,7 +12,8 @@ const initialState = {
     isLoading: false,
     isSuccess: false,
     isError: false,
-    message:'',
+    message: '',
+    allUsers:[],
 }
 
 // handle the registration
@@ -47,6 +51,27 @@ export const sendResetMail = createAsyncThunk('auth/reset-mail', async (userData
     }
 })
 
+// add new user
+
+export const addNewUser = createAsyncThunk('auth/add-new-user', async (userData,thunkApi) => {
+    try {
+        const token = thunkApi.getState().auth.user.token;
+        return authService.addNewUser(userData, token);
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const getAllUsers = createAsyncThunk('auth/get-all-user', async (_,thunkApi) => {
+    try {
+        return authService.getAllUsers();
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -64,13 +89,13 @@ export const authSlice = createSlice({
             .addCase(registerUser.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(registerUser.rejected,(state,action)=>{
+            .addCase(registerUser.rejected, (state, action) => {
                 state.user = null
                 state.isLoading = false;
                 state.isError = true;
                 state.message = action.payload;
             })
-            .addCase(registerUser.fulfilled,(state,action)=>{
+            .addCase(registerUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload;
@@ -78,13 +103,13 @@ export const authSlice = createSlice({
             .addCase(loginUser.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(loginUser.rejected,(state,action)=>{
+            .addCase(loginUser.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = action.payload;
                 state.user = null
             })
-            .addCase(loginUser.fulfilled,(state,action)=>{
+            .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload;
@@ -92,17 +117,44 @@ export const authSlice = createSlice({
             .addCase(sendResetMail.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(sendResetMail.rejected,(state,action)=>{
+            .addCase(sendResetMail.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = 'Invalid email address'
             })
-            .addCase(sendResetMail.fulfilled,(state)=>{
+            .addCase(sendResetMail.fulfilled, (state) => {
                 state.isLoading = false;
                 state.isSuccess = true;
+            })
+            .addCase(addNewUser.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(addNewUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload
+            })
+            .addCase(addNewUser.fulfilled, (state) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+            })
+            .addCase(getAllUsers.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getAllUsers.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload
+            })
+            .addCase(getAllUsers.fulfilled, (state,action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.allUsers = action.payload;
             })
     }
 })
 
-export const { reset } = authSlice.actions
+export const {
+    reset
+} = authSlice.actions
 export default authSlice.reducer
