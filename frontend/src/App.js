@@ -21,7 +21,7 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<Login />} />
+        <Route exact path='/login' element={<Login />} />
         <Route exact path='/register' element={<Signup />} />
         <Route exact path='/forget-password' element={<Main />} />
 

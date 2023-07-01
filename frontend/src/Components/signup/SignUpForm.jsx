@@ -97,7 +97,7 @@ return (
         <Stack direction='horizontal' className='mx-auto mt-3'>
             <div className='gray'>Already have an account?</div>
             <div className='ms-3 gray'>
-                <Link to='/' style={{ textDecoration: "none", color: "rgb(115,103,240)" }}>Sign in instead</Link>
+                <Link to='/login' style={{ textDecoration: "none", color: "rgb(115,103,240)" }}>Sign in instead</Link>
             </div>
         </Stack>
         <Stack direction='horizontal' className='d-flex align-items-center mt-3'>

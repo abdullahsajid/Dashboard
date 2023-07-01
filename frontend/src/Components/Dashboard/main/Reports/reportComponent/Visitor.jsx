@@ -11,13 +11,13 @@ const Visitor = () => {
   const getVisitors = async () => {
     try {
       const response = await axios.get('http://localhost:3001/api/visitors/getCount');
-      const data = response.data; 
+      const data = await response.data; 
       setIsLoading(false);
       setCount(data);
       setVisit(prevState => ({ ...prevState, series: [data] }));
 
     } catch (error) {
-      toast(error);
+      toast(error.message);
     }
     }
   useEffect(()=>{

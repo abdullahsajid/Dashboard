@@ -6,7 +6,7 @@ const getTotalUsers = AsyncHandler(async (req, res) => {
     try {
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth()
-        let visitor = await Visitors.findOneAndUpdate({
+        await Visitors.findOneAndUpdate({
             month: currentMonth,
         }, {
             $inc: {
