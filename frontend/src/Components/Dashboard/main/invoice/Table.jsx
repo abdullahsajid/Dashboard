@@ -1,42 +1,49 @@
 import React, { useMemo } from 'react'
 import { MaterialReactTable } from 'material-react-table'
 import { Link } from 'react-router-dom';
+import UpdateorDel from '../../../User/Userlist/UpdateorDel';
 const data = [
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
         total:"PKR 520",
-        issueDate:"2023-6-5"
+        issueDate:"2023-6-5",
+        action:<UpdateorDel/>
     }
   ];
 const Tablee = () => {
