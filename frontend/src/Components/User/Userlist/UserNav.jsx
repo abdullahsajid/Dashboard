@@ -1,6 +1,6 @@
-
+import AddCategory from '../../Category/AddCategory'
 import AddUser from "./AddUser"
-const UserNav = ({isOpen,toggle}) => {
+const UserNav = ({isOpen,toggle,show}) => {
   return (
     <div className={` ${isOpen ? "addingUser--nav show" : "addingUser--nav"} `}>
         <div className="usernav-content">
@@ -16,7 +16,7 @@ const UserNav = ({isOpen,toggle}) => {
                 </button>
             </div>
 
-            <AddUser/>
+            {show ? <AddCategory/> : <AddUser/>}
         </div>
     </div>
   )
