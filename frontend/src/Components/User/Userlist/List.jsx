@@ -17,6 +17,7 @@ const List = () => {
       toast(message);
     }
     dispatch(getAllUsers());
+    
   }, []);
 
   useEffect(() => {
@@ -47,23 +48,29 @@ const List = () => {
       {
         accessorKey: 'name',
         header: 'USER',
-        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } },
+        renderCell: ({ rowData }) => <span>{rowData.name}</span>
       },
       {
         accessorKey: 'email',
         header: 'EMAIL',
-        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } },
+        renderCell: ({ rowData }) => <span>{rowData.email}</span>
       },
       {
         accessorKey: 'role',
         header: 'ROLE',
-        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } },
+        renderCell: ({ rowData }) => <span>{rowData.role}</span>
       },
       {
-        accessorKey: 'action',
-        header: 'ACTIONS',
-        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } }
-      }
+        accessorKey: 'update',
+        header: 'UPDATE',
+        muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } },
+        renderCell: ({ rowData }) => (
+        <button>UPDATE</button>
+        )
+      },
     ],
     []
   );

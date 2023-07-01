@@ -54,6 +54,7 @@ const AddUser = () => {
             name, email, password, m_number, role
         }
         dispatch(addNewUser(userData));
+        toast('User Added Successfully!')
     };
     if (isLoading) {
         return <Spinner/>
