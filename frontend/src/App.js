@@ -13,6 +13,8 @@ import UserList from './Components/User/UserList';
 import List from './Components/User/Userlist/List';
 import MainCategoryCom from './Components/Category/MainCategoryCom';
 import ResetMain from './Components/ResetPass/ResetMain';
+import MainProduct from './Components/Products/MainProduct';
+import AddProdMain from './Components/Products/addproduct/AddProdMain';
 function App() {
   return (
     <>
@@ -33,6 +35,8 @@ function App() {
         <Route exact path='/user' element={<UserList/>}>
           <Route index element={<List/>}/>
           <Route path='/user/category' element={<MainCategoryCom/>}/>
+          <Route path='/user/product' element={<MainProduct/>}/>
+          <Route path='/user/addproduct' element={<AddProdMain/>}/>
         </Route>
 
       </Routes>

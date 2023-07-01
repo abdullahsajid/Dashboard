@@ -5,24 +5,28 @@ import UserNav from './UserNav';
 import UpdateorDel from './UpdateorDel'
 const data = [
     {
-        user:"Abdullah",
-        role:"user",
-        action:<UpdateorDel/>
+      id:0,
+      user:"Abdullah",
+      role:"user",
+      action:<UpdateorDel/>
     },
     {
-        user:"Ali",
-        role:"admin",
-        action:<UpdateorDel/>
+      id:1,
+      user:"Ali",
+      role:"admin",
+      action:<UpdateorDel/>
     },
     {
-        user:"Ahmad",
-        role:"admin",
-        action:<UpdateorDel/>
+      id:2,
+      user:"Ahmad",
+      role:"admin",
+      action:<UpdateorDel/>
     },
     {
-        user:"hamza",
-        role:"super admin",
-        action:<UpdateorDel/>
+      id:3,
+      user:"hamza",
+      role:"super admin",
+      action:<UpdateorDel/>
     },
   ];
 const List = () => {
