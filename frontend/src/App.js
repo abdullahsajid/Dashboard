@@ -11,6 +11,8 @@ import InvoiceTable from './Components/Dashboard/main/invoice/InvoiceTable';
 import MainInvoice from './Components/Dashboard/main/createInvoice/MainInvoice';
 import UserList from './Components/User/UserList';
 import List from './Components/User/Userlist/List';
+import MainCategoryCom from './Components/Category/MainCategoryCom';
+import ResetMain from './Components/ResetPass/ResetMain';
 function App() {
   return (
     <>
@@ -19,7 +21,8 @@ function App() {
         <Route exact path='/' element={<Login/>}/>
         <Route exact path='/register' element={<Signup/>}/>
         <Route exact path='/forget-password' element={<Main/>}/>
-        
+        <Route exact path='/reset-password' element={<ResetMain/>}/>
+
         <Route exact path='/dashboard' element={<Dashboard/>}>
           <Route index element={<MainContent/>}/>
           <Route path='/dashboard/report' element={<Report/>}/>
@@ -29,6 +32,7 @@ function App() {
 
         <Route exact path='/user' element={<UserList/>}>
           <Route index element={<List/>}/>
+          <Route path='/user/category' element={<MainCategoryCom/>}/>
         </Route>
 
       </Routes>
