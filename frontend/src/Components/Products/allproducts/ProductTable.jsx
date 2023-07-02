@@ -2,6 +2,7 @@ import React from 'react'
 import { useMemo,useState } from 'react';
 import { MaterialReactTable } from 'material-react-table'
 import UpdateorDel from '../../User/Userlist/UpdateorDel';
+import Header from './Header';
 const data = [
     {
         id:1,
@@ -14,6 +15,7 @@ const data = [
     },
     
 ]
+
 const ProductTable = () => {
     const columns = useMemo(
         () => [
@@ -52,6 +54,7 @@ const ProductTable = () => {
       );
   return (
     <div>
+      <Header stock={data.length}/>
       <MaterialReactTable columns={columns} data={data}/>
     </div>
   )

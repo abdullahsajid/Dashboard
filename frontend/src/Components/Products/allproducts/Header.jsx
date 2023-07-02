@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({stock}) => {
     return (
         <div className='d-flex align-items-center flex-wrap gap-4 p-3'>
             <div className='d-flex justify-content-between align-items-center w-100'>
                 <div>
-                    <h2>Products (6)</h2>
+                    <h2>Products ({stock})</h2>
                 </div>
                 <div>
                 <Link to='/user/addproduct' className='create-invoice-btn' style={{ cursor: "pointer" }}>
