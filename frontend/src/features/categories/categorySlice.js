@@ -56,6 +56,7 @@ export const categorySlice = createSlice({
             .addCase(addCategory.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
+                state.categories.categories.push(action.payload);
             })
             .addCase(getCategory.pending, (state) => {
                 state.isLoading = true;
@@ -63,13 +64,15 @@ export const categorySlice = createSlice({
             .addCase(getCategory.rejected, (state, action) => {
                 
                 state.isLoading = false;
-                state.isError = true;state.categories = null
+                state.isError = true;
+                state.categories = null
                 state.message = action.payload;
             })
             .addCase(getCategory.fulfilled, (state, action) => {
+                state.categories = action.payload;
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.categories = action.payload;
+                state.isError = false;
             })
     }
 })

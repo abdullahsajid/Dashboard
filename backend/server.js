@@ -23,6 +23,8 @@ app.use('/api/users/reset-password', require('./routes/resetPasswordRoute'))
 app.use('/api/visitors/',require('./routes/visitorRoutes'))
 // handle the category routes
 app.use('/api/category/',require('./routes/categoryRoutes'))
+// handle the product routes
+app.use('/api/product/',require('./routes/productRoutes'))
 // check for errors
 app.use(errorHandler)
 
