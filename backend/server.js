@@ -29,5 +29,5 @@ app.use(errorHandler)
 
 
 
-app.listen(port,()=>console.log(`server started on port:${port.cyan}`))
+app.listen(port,()=>console.log(`server started on port:${port}`))
 

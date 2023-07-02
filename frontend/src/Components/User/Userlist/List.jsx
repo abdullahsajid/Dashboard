@@ -6,36 +6,9 @@
   import { getAllUsers } from '../../../features/auth/authSlice';
   import { toast } from 'react-toastify';
   import Spinner from '../../Spinner/Spinner';
-  import UpdateorDel from './UpdateorDel'
-  const data = [
-  {
-  user:"Abdullah",
-  role:"user",
-  action:
-  <UpdateorDel />
-  },
-  {
-  user:"Ali",
-  role:"admin",
-  action:
-  <UpdateorDel />
-  },
-  {
-  user:"Ahmad",
-  role:"admin",
-  action:
-  <UpdateorDel />
-  },
-  {
-  user:"hamza",
-  role:"super admin",
-  action:
-  <UpdateorDel />
-  },
-  ];
   const List = () => {
   const [data, setData] = useState([]);
-  const { isLoading, isError, isSuccess, allUsers, message } = useSelector(state => state.auth);
+  const { isLoading, isError, allUsers, message } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -108,8 +81,7 @@
   };
 
   if (isLoading) {
-  return
-  <Spinner />;
+  return <Spinner />;
   }
 
   return (
