@@ -100,6 +100,13 @@ import { toast } from 'react-toastify';
                     <div className="image w-25 mb-3">
                 <img width="100%" name="image" src={photoPreview?photoPreview:''} alt="" />
 
+
+
+
+
+
+
+
                 </div>
                 <input name='photo' onChange={handleImage} type='file' id='productImg' multiple=''
                     data-max_length='10' />
