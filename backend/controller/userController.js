@@ -69,11 +69,11 @@ const loginUser = AsyncHandler(async (req, res) => {
     }
 })
 
-const getUser = (req, res) => {
-    const user = req.user
-    res.send(user)
+const getUsers = AsyncHandler(async(req, res) => {
+    const users = await User.find();
+    res.json(users);
 
-}
+})
 
 const getAdmins =AsyncHandler(async(req, res) => {
     const user = req.user;
@@ -96,9 +96,31 @@ const generateToken = (id) => {
     })
 }
 
+const addNewUser = AsyncHandler(async (req, res) => {
+    const user = req.user;
+    if (user.role === 2) {
+        const { name, email, password, m_number, role } = req.body;
+        const newUser = await User.create({
+            name, email, password, m_number, role
+        });
+        res.json({
+            _id: newUser._id,
+            name:newUser.name,
+            email:newUser.email,
+            password:newUser.password,
+            m_number:newUser.m_number,
+            role:newUser.role,
+        })
+    }else{
+        res.status(401);
+        throw new Error('You are not authorized');
+    }
+})
+
 module.exports = {
     registerUser,
     loginUser,
-    getUser,
-    getAdmins
+    getUsers,
+    getAdmins,
+    addNewUser
 }

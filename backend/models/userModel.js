@@ -14,7 +14,11 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Please enter the password field'],
-        minlength: [6, 'Password should be at least 6 characters long']
+    },
+    m_number: {
+        type: String,
+        required: false,
+        default:'No Mobile Number Available'
     },
     role: {
         type: Number,
@@ -28,6 +32,8 @@ const userSchema = mongoose.Schema({
         default:null,
         type:Date
     }
+}, {
+    timestamps:true
 });
 
 module.exports = mongoose.model('User', userSchema);
