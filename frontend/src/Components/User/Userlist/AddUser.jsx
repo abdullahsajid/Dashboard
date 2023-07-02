@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import Inputfield from "./Inputfield";
 import { FormControl, Select, MenuItem, TextField } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
 import { addNewUser } from '../../../features/auth/authSlice';

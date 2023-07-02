@@ -21,6 +21,8 @@ app.use('/api/users',require('./routes/userRoutes'))
 app.use('/api/users/reset-password', require('./routes/resetPasswordRoute'))
 // handle the visitor routes
 app.use('/api/visitors/',require('./routes/visitorRoutes'))
+// handle the category routes
+app.use('/api/category/',require('./routes/categoryRoutes'))
 // check for errors
 app.use(errorHandler)
 

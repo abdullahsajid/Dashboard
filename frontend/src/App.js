@@ -53,7 +53,7 @@ function App() {
         {/* <Route path='/*' element={<ToastContainer />} /> */}
         </Routes>
       </BrowserRouter>
-      <ToastContainer/>
+      {/* <ToastContainer limit={1} /> */}
     </>
   );
 }
