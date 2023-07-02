@@ -105,7 +105,7 @@
             </div>
             <MaterialReactTable columns={columns} data={data} />
           </div>
-          <UserNav isOpen={isOpen} toggle={toggleSidebar} />
+          <UserNav isOpen={isOpen} toggle={toggleSidebar} show={false} />
         </div>
     </div>
   </div>
