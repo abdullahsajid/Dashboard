@@ -1,4 +1,6 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import Login from './Components/login/Login';
@@ -18,6 +20,9 @@ import MainCategoryCom from './Components/Category/MainCategoryCom';
 import ResetMain from './Components/ResetPass/ResetMain';
 import MainProduct from './Components/Products/MainProduct';
 import AddProdMain from './Components/Products/addproduct/AddProdMain';
+import Order from './Components/order/Order';
+import ViewOrderDetail from './Components/order/ViewDetails/ViewOrderDetail';
+import RefundMain from './Components/Refund/RefundMain';
 function App() {
   return (
     <>
@@ -27,11 +32,13 @@ function App() {
         <Route exact path='/register' element={<Signup />} />
         <Route exact path='/forget-password' element={<Main />} />
 
-        <Route exact path='/dashboard' element={<Dashboard />}/>
+        <Route exact path='/dashboard' element={<Dashboard />}>
           <Route index element={<MainContent />} />
           <Route path='/dashboard/report' element={<Report />} />
           <Route path='/dashboard/invoice' element={<InvoiceTable />} />
           <Route path='/dashboard/add' element={<MainInvoice />} />
+        </Route>
+        
         <Route exact path='/' element={<Login/>}/>
         <Route exact path='/register' element={<Signup/>}/>
         <Route exact path='/forget-password' element={<Main/>}/>
@@ -49,6 +56,9 @@ function App() {
           <Route path='/user/category' element={<MainCategoryCom/>}/>
           <Route path='/user/product' element={<MainProduct/>}/>
           <Route path='/user/addproduct' element={<AddProdMain/>}/>
+          <Route path='/user/order' element={<Order/>}/>
+          <Route path='/user/orderdetail' element={<ViewOrderDetail/>}/>
+          <Route path='/user/refund' element={<RefundMain/>}/>
         </Route>
 
         <Route exact path='/user' element={<UserList />}>

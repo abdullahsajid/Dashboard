@@ -16,8 +16,8 @@
     padding: 20px;
 }
 .color-68{
-    color: rgba(47, 43, 61, .68);
+    color: rgba(47, 43, 61, .68) !important;
 }
 .color-78{
-    color: rgba(47, 43, 61, .78);
+    color: rgba(47, 43, 61, .78) !important;
 }

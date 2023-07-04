@@ -2,7 +2,7 @@
   border: 1px solid red;
 } */
 .gray{
-  color: #726F7B;
+  color: #726F7B !important;
 }
 .heading{
   color: #5D5A68;
@@ -53,4 +53,17 @@
   font-size: 18px;
     height: 18px;
     width: 18px;
+}
+.mr-05{
+  margin-bottom: .5rem;
+}
+.orderid--container{
+  border: 1px solid #eeecec;
+  inline-size: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  padding: .5rem;
+  background-color: #eeecec;
 }
