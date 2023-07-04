@@ -134,9 +134,10 @@ export const authSlice = createSlice({
                 state.isError = true;
                 state.message = action.payload
             })
-            .addCase(addNewUser.fulfilled, (state) => {
+            .addCase(addNewUser.fulfilled, (state,action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
+                state.allUsers.push(action.payload);
             })
             .addCase(getAllUsers.pending, (state) => {
                 state.isLoading = true;

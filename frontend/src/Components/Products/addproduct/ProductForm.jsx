@@ -76,8 +76,8 @@ import { toast } from 'react-toastify';
             if (!name || !price || !description || !category || !color || !photo) {
                 alert('please enter all the fields');
             } else {
-                
                 dispatch(addProduct(productData));
+                alert('Product added')
             }
         }
         useEffect(() => {
@@ -99,13 +99,6 @@ import { toast } from 'react-toastify';
                     </label>
                     <div className="image w-25 mb-3">
                 <img width="100%" name="image" src={photoPreview?photoPreview:''} alt="" />
-
-
-
-
-
-
-
 
                 </div>
                 <input name='photo' onChange={handleImage} type='file' id='productImg' multiple=''
