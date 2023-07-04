@@ -3,7 +3,7 @@ import {Form, Stack,Button} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { loginUser } from '../../features/auth/authSlice';
+import { loginUser,reset } from '../../features/auth/authSlice';
 const LoginForm = ({heading,title}) => {
     // initialze the state values for the form
     const [formFields, setFormFields] = useState({
@@ -31,7 +31,8 @@ const LoginForm = ({heading,title}) => {
         } if (isSuccess || user) {
             navigate('/dashboard')
         }
-    },[isError,isSuccess,message,user,navigate])
+        dispatch(reset())
+    },[isError,isSuccess,message,user,navigate,dispatch])
     // handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();

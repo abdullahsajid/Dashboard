@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { sendResetMail } from '../../features/auth/authSlice';
 import {useDispatch, useSelector} from 'react-redux'
 import { toast } from 'react-toastify';
+import Spinner from '../Spinner/ContentSpinner';
 const ForgetForm = ({heading,title}) => {
     const [email, setEmail] = useState('');
     // this is a test comment
@@ -16,9 +17,11 @@ const ForgetForm = ({heading,title}) => {
         if (isError) {
             toast.error(message);
             alert(message)
+            setEmail('');
         } else if (isSuccess) {
             toast.success('Email Sent Successfully!');
-            alert('Sent successfully')
+            alert('Email sent successfully to the provided email address!')
+            setEmail('');
         }
     }, [isError, isSuccess, message]);
 
@@ -29,7 +32,7 @@ const ForgetForm = ({heading,title}) => {
         dispatch(sendResetMail({email}));
     }
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return <Spinner/>
     }
     return (
         <>

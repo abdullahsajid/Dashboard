@@ -24,7 +24,7 @@ const resetPassword = AsyncHandler(async (req, res) => {
         const resetToken = checkUser.id;
         checkUser.resetToken = resetToken;
         checkUser.resetTokenExpiration = new Date(Date.now() + 3600000);
-        await checkUser.save();
+        await checkUser.save()
 
         // create the mail trasnporter
 
@@ -41,8 +41,8 @@ const resetPassword = AsyncHandler(async (req, res) => {
         const mailOptions = {
             from: 'hsuntariq@gmail.com',
             to: checkUser.email,
-            subject: 'Test Email',
-            text: `Please click the following link to reset your password: http://localhost:3001/api/reset-password/${resetToken}`,
+            subject: 'Password Reset',
+            text: `Please click the following link to reset your password: http://localhost:3000/reset-password/${resetToken}`,
         };
 
             // Send email using the transporter

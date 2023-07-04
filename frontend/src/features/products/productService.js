@@ -6,6 +6,12 @@ const addProduct = async (productData) => {
     return response.data;
 }
 
+const getProducts = async () => {
+    const response = await axios.get(`${URL}/get-products`);
+    return response.data;
+}
+
 export const productService = {
     addProduct,
+    getProducts
 }

@@ -14,6 +14,12 @@ const addProduct = AsyncHandler(async (req, res) => {
     
 });
 
+const getProducts = AsyncHandler(async(req,res)=>{
+    const products = await Product.find();
+    res.json(products);
+})
+
 module.exports = {
-    addProduct
+    addProduct,
+    getProducts
 }
