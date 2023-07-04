@@ -35,7 +35,7 @@ function App() {
         <Route exact path='/' element={<Login/>}/>
         <Route exact path='/register' element={<Signup/>}/>
         <Route exact path='/forget-password' element={<Main/>}/>
-        <Route exact path='/reset-password' element={<ResetMain/>}/>
+        <Route exact path='/reset-password/:token' element={<ResetMain/>}/>
 
         <Route exact path='/dashboard' element={<Dashboard/>}>
           <Route index element={<MainContent/>}/>

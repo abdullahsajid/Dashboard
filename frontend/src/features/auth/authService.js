@@ -41,12 +41,19 @@ const getAllUsers = async () => {
 }
 
 
+const resetPassword = (token,id) => {
+    let response = axios.post(`${URL}/reset-password/${token}`,id);
+    return response.data;
+}
+
+
 const authService = {
     registerUser,
     loginUser,
     sendResetMail,
     addNewUser,
-    getAllUsers
+    getAllUsers,
+    resetPassword
 }
 
 export default authService;

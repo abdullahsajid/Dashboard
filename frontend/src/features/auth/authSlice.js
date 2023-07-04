@@ -40,6 +40,7 @@ export const loginUser = createAsyncThunk('auth/login', async (userData, thunkAp
 })
 
 
+
 // handle the reset password
 
 export const sendResetMail = createAsyncThunk('auth/reset-mail', async (userData, thunkApi) => {
@@ -50,6 +51,19 @@ export const sendResetMail = createAsyncThunk('auth/reset-mail', async (userData
         return thunkApi.rejectWithValue(message);
     }
 })
+
+// handle the reset passsword
+
+export const resetPassword = createAsyncThunk('auth/reset-pass', async (token,data, thunkApi) => {
+    try {
+        return authService.resetPassword(token,data);
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkApi.rejectWithValue(message);
+    }
+})
+
+
 
 // add new user
 
@@ -123,6 +137,18 @@ export const authSlice = createSlice({
                 state.message = 'Invalid email address'
             })
             .addCase(sendResetMail.fulfilled, (state) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+            })
+            .addCase(resetPassword.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(resetPassword.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = 'An Error Occured'
+            })
+            .addCase(resetPassword.fulfilled, (state) => {
                 state.isLoading = false;
                 state.isSuccess = true;
             })

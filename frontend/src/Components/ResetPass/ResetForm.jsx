@@ -1,10 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios';
 import {Form, Stack,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Spinner from '../Spinner/ContentSpinner';
 const ResetForm = ({heading,title}) => {
-    const[newPass,setNewPass] = useState()
+    const [loading,setLoading] = useState(false)
+    const[password,setNewPassword] = useState()
     const[confPass,setConfPass] = useState()
-  return (
+    // get the token from the url bar
+    const {token} = useParams();
+    const { isSuccess } = useSelector(state => state.auth);
+    // get the dispatch fromm redux
+    const navigate = useNavigate();
+    
+        const handleSubmit = async (e) => {
+            setLoading(true);
+            e.preventDefault();
+            try {
+                await axios.post(
+                `http://localhost:3001/api/users/reset-password/${token}`,
+                { password: password }
+            );
+            setLoading(false)
+            toast.success('Password Reset Successful')
+            alert('Password Reset Successful')
+            navigate('/login')
+            } catch (error) {
+                alert(error.message);
+                toast.error(error.message);
+            }
+
+};
+    if(loading){
+        return <Spinner/>
+    }
+return (
     <>
             <Stack direction='vertical' className='p-4'>
                 <Stack direction='vertical' className='mb-3'>
@@ -22,16 +56,16 @@ const ResetForm = ({heading,title}) => {
                 <Form style={{ width: "100%" }}>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label className='label--heading gray'>New Password</Form.Label>
-                        <Form.Control value={newPass} onChange={(e)=>setNewPass(e.target.value)} type="password" placeholder="Enter new password" />
+                        <Form.Control value={password} onChange={(e)=>setNewPassword(e.target.value)} type="password" placeholder="Enter new password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label className='label--heading gray'>Confirm Password</Form.Label>
                         <Form.Control value={confPass} onChange={(e)=>setConfPass(e.target.value)} type="password" placeholder="Enter confirm password" />
                     </Form.Group>
-                    <Button type='submit' style={{ width: "100%", backgroundColor: "#7367F0" }}>Send New Password</Button>
+                    <Button onClick={handleSubmit} type='submit' style={{ width: "100%", backgroundColor: "#7367F0" }}>Send New Password</Button>
                 </Form>
                 <Stack direction='horizontal' className='mx-auto mt-3'>
-                    <div className='ms-3 gray'><Link to='/' style={{ textDecoration: "none", color: "rgb(115,103,240)" }}> {'<'} Back to login</Link></div>
+                    <div className='ms-3 gray'><Link to='/login' style={{ textDecoration: "none", color: "rgb(115,103,240)" }}> {'<'} Back to login</Link></div>
                 </Stack>
             </Stack>
         </>
