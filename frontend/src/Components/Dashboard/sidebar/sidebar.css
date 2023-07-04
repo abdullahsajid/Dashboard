@@ -82,7 +82,20 @@
     margin-right: auto;
     color: rgb(131,128,139);
 }
-
+.toggle--btn{
+    cursor: pointer;
+    transition: transform .3s;
+}
+.toggle--btn.rotate{  
+    transform: rotate(90deg);
+}
+.child{
+    height: 0;
+    overflow: hidden;
+}
+.nav-link.open > .child{
+    height: auto;
+}
 
 @media (max-width: 70em) {
     .sidebar{
