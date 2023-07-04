@@ -1,12 +1,13 @@
-import React from 'react'
+import sideData from'./sidebarData.json'
 import './sidebar.css'
 import { Link } from 'react-router-dom'
-import Dropdown from 'react-bootstrap/Dropdown';
+import { useState } from 'react'
 const Sidebar = () => {
+  const[toggle,setToggle] = useState(false)
   return (
     <div className='sidebar'>
       <div className='nav-header'>
-        <a href="" className='nav-head'>
+        <Link to="/dashboard" className='nav-head'>
           <div>
             <svg width="32" height="22" viewBox="0 0 34 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00183571 0.3125V7.59485C0.00183571 7.59485 -0.141502 9.88783 2.10473 11.8288L14.5469 23.6837L21.0172 23.6005L19.9794 10.8126L17.5261 7.93369L9.81536 0.3125H0.00183571Z" fill="currentColor"></path>
@@ -16,111 +17,40 @@ const Sidebar = () => {
             </svg>
           </div>
           <div><h1>Vuexy</h1></div>
-        </a>
+        </Link>
         <div className='nav-head-remove-add-btn'>
-          <svg xmlns="http://www.w3.org/2000/svg"  role="button" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
+          <svg xmlns="http://www.w3.org/2000/svg" role="button" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
               <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0"></path><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"></path></g>
           </svg>
         </div>
       </div>
       <ul className='uls'>
-      <li class="nav-link">
-        <Link to="/dashboard" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">dashboard</span>
-        </Link>
-      </li>
-      <li class="nav-link">
-        <Link to="/user" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">User</span>
-        </Link>
-      </li>
-      <li class="nav-link">
-        <Link to="/user/category" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Category</span>
-        </Link>
-      </li>
-      <li class="nav-link">
-        <Link to="/user/product" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Products</span>
-        </Link>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Payment Gateways</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Recent Transactions</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Statistics</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Profit</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Revenue Report</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Sales order</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Invoice</span>
-        </a>
-      </li>
-      <li class="nav-link">
-        <a href="/vuexy-vuejs-admin-template/demo-1/apps/email" >
-          <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" role="img" tag="i"  width="1em" height="1em" viewBox="0 0 24 24">
-          <g  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path><path d="m3 7l9 6l9-6"></path></g></svg>
-            <span class="nav-item-title">Visits</span>
-        </a>
-      </li>
+        {sideData.map((item,index) => (
+          item.child ? 
+          <li className={`${toggle ? 'nav-link open' : 'nav-link'}`} key={index}>
+            <Link to={`${item.path}`}>
+              <i className={`${item.icon} color-78 me-3`} style={{fontSize:"25px" }}></i>
+              <span className="nav-item-title">{item.title}</span>
+              <i className={`bi bi-caret-right-fill color-78 toggle--btn ${toggle ? 'rotate' : ''}`} onClick={() => setToggle(!toggle)}></i>
+            </Link>
+          
+            {item.child.map((val) => (
+                <li className='child'>
+                    <Link to={`${val.path}`}>
+                    <i className={`${val.icon} color-78 me-3`} style={{fontSize:"25px" }}></i>
+                      <span className="nav-item-title">{val.title}</span>
+                    </Link>
+            </li>))}
+          </li>
+          :
+          <li className="nav-link">
+            <Link to={`${item.path}`} >
+              <i className={`${item.icon} color-78 me-3`} style={{fontSize:"25px" }}></i>
+              <span className="nav-item-title">{item.title}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   )

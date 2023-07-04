@@ -6,7 +6,6 @@ const Products = () => {
   return (
     <div className='col-12'>
         <div className='card'>
-            
             <ProductTable/>
         </div>
     </div>
