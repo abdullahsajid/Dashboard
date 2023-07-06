@@ -1,6 +1,5 @@
 ### Progress 
-    Build Sign up , Login and Forget password Component
-    added some dashboard components 
+    complete Dashboard, user management, category management, product management, order management and developing dummy store
 ### UI library
     react bootstrap 
 ### Dashboard
