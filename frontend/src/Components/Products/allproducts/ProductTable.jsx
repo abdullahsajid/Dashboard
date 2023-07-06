@@ -1,9 +1,4 @@
-
-import React from 'react'
 import { useMemo,useState,useEffect } from 'react';
-
-import { useMemo,useState } from 'react';
-
 import { MaterialReactTable } from 'material-react-table'
 import UpdateorDel from '../../User/Userlist/UpdateorDel';
 import { useDispatch, useSelector } from 'react-redux';

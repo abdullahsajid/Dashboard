@@ -1,4 +1,5 @@
 import './refund.css'
+import SearchRefund from './searchrefund/SearchRefund'
 const RefundMain = () => {
   return (
     <div className="layout-content">
@@ -35,8 +36,10 @@ const RefundMain = () => {
                                 </button>
                             </div>
                         </form>
+                        <SearchRefund/>
                     </div>  
                 </div>
+                
             </div>
         </div>
     </div>

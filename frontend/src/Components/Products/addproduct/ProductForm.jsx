@@ -69,7 +69,7 @@ const ProductForm = () => {
 
         // handle Image
         const handleSubmit = async(e) => {
-            e.preventDefault();
+            e.preventDefault()
             const image = await imageUpload(photo);
             const productData = {
                 name, price, description, category, color, image
@@ -154,28 +154,30 @@ const ProductForm = () => {
                 <button onClick={handleSubmit} type='submit' className='btn btn-dark'>
                     Create
                 </button>
-
-    // handle Image
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const image = await imageUpload(photo);
-        const productData = {
-            name, price, description, category, color, image
-        }
-        if (!name || !price || !description || !category || !color || !photo) {
-            alert('please enter all the fields');
-        } else {
-
-            dispatch(addProduct(productData));
-        }
-    }
-    useEffect(() => {
-        if (isError) {
-            alert(message)
-        }
-        dispatch(reset())
-    }, [isError, dispatch, message]);
-
+                </div>
+        </form>
+    </div>
+    )}
+    // // handle Image
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const image = await imageUpload(photo);
+    //     const productData = {
+    //         name, price, description, category, color, image
+    //     }
+    //     if (!name || !price || !description || !category || !color || !photo) {
+    //         alert('please enter all the fields');
+    //     } else {
+    //         dispatch(addProduct(productData));
+    //     }
+    // }
+    // useEffect(() => {
+    //     if (isError) {
+    //         alert(message)
+    //     }
+    //     dispatch(reset())
+    // }, [isError, dispatch, message]);
+     
     if (load) {
         return <Spinner />
     } else {
