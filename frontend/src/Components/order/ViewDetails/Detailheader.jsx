@@ -29,7 +29,7 @@ const Detailheader = () => {
                     <FormControl fullWidth>
                         <Select
                             name="status"
-                            id="demo-simple-select"
+                            id="status"
                             style={{ marginBottom: "12px", padding: '0' }}
                         >
                             <MenuItem value={'new'}>New</MenuItem>
