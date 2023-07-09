@@ -18,8 +18,9 @@ const ResetForm = ({heading,title}) => {
     const navigate = useNavigate();
     
         const handleSubmit = async (e) => {
-            setLoading(true);
             e.preventDefault();
+            if (password === confPass) {
+                setLoading(true);
             try {
                 await axios.post(
                 `http://localhost:3001/api/users/reset-password/${token}`,
@@ -33,6 +34,10 @@ const ResetForm = ({heading,title}) => {
                 alert(error.message);
                 toast.error(error.message);
             }
+            } else {
+                alert('passwords do not match');
+            }
+            
 
 };
     if(loading){

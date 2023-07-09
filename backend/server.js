@@ -25,6 +25,8 @@ app.use('/api/visitors/',require('./routes/visitorRoutes'))
 app.use('/api/category/',require('./routes/categoryRoutes'))
 // handle the product routes
 app.use('/api/product/',require('./routes/productRoutes'))
+// handle the payment 
+app.use('/api/payments/', require('./routes/paymentRoutes'));
 // check for errors
 app.use(errorHandler)
 
