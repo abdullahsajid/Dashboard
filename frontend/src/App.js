@@ -23,6 +23,8 @@ import AddProdMain from './Components/Products/addproduct/AddProdMain';
 import Order from './Components/order/Order';
 import ViewOrderDetail from './Components/order/ViewDetails/ViewOrderDetail';
 import RefundMain from './Components/Refund/RefundMain';
+import Store from './Components/Store/Store';
+import SpecificProduct from './Components/Store/ShowProducts/SpecificProduct';
 function App() {
   return (
     <>
@@ -60,6 +62,10 @@ function App() {
           <Route path='/user/orderdetail' element={<ViewOrderDetail/>}/>
           <Route path='/user/refund' element={<RefundMain/>}/>
         </Route>
+        
+        {/* store */}
+        <Route path='/store' element={<Store/>}/>
+        <Route path='/store/product/:id' element={<SpecificProduct/>}/>
 
         <Route exact path='/user' element={<UserList />}>
           <Route index element={<List />} />
