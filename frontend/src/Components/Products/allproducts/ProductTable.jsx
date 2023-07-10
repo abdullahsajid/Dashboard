@@ -1,6 +1,6 @@
+import React from 'react'
 import { useMemo,useState,useEffect } from 'react';
 import { MaterialReactTable } from 'material-react-table'
-import UpdateorDel from '../../User/Userlist/UpdateorDel';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../../features/products/productSlice';
 import Spinner from '../../Spinner/Spinner';
@@ -9,7 +9,7 @@ import Header from './Header';
 const ProductTable = () => {
   const [data, setData] = useState();
   const dispatch = useDispatch();
-  const { products, isLoading, isError } = useSelector(state => state.product);
+  const { products, isLoading } = useSelector(state => state.product);
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);

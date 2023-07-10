@@ -27,19 +27,26 @@ const LoginForm = ({heading,title}) => {
     // handle the third party
     useEffect(()=>{
         if (isError) {
-            toast(message)
-        } if (isSuccess || user) {
+            toast('Invalid Credential')
+            alert('Invalid Credential');
+        } if (isSuccess) {
             navigate('/dashboard')
         }
         dispatch(reset())
-    },[isError,isSuccess,message,user,navigate,dispatch])
+    },[isError,isSuccess,user,navigate,dispatch])
     // handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         const userData = {
             email,password
         }
-        dispatch(loginUser(userData));
+        if (!email || !password) {
+            alert('Please enter the fields!')
+        } else {
+            dispatch(loginUser(userData));
+            
+        }
+        
     }
     return (
         <>
