@@ -96,9 +96,9 @@
 .nav-link.open > .child{
     height: auto;
 }
-
-@media (max-width: 70em) {
-    .sidebar{
-        display: none;
-    }
-  }
+.visibled{
+    transform: translate(0px) !important;
+}
+.in--visible{
+    transform: translate(-260px);
+}

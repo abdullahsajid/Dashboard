@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import './dashboard.css'
 import './main/layout.css'
 import Sidebar from './sidebar/Sidebar'
 import Header from './main/Header/Header'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-
 const Dashboard = () => {
   const { user } = useSelector(state => state.auth);
   // use navigation 
@@ -19,7 +18,7 @@ const Dashboard = () => {
   return (
     <>
     <div className='app'>
-      <Sidebar/>
+      <Sidebar show={false}/>
       <div className='mainLayout'>
         <Header/>
         <Outlet/>
