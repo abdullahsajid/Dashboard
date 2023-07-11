@@ -14,6 +14,7 @@ const Ordertable = () => {
   const {orders,isLoading,isError,isSuccess,message} = useSelector(state=>state.order)
   const {products} = useSelector(state=>state.product)
   const dispatch = useDispatch();
+  console.log(orders)
   useEffect(() => {
     if(isError){
       alert(message)

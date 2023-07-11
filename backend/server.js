@@ -9,8 +9,6 @@ const cors = require('cors')
 const port = process.env.PORT;
 const app = express();
 const path = require('path');
-// Serve the static files from the React build directory
-app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // allow cross site requests
 app.use(cors());
@@ -39,10 +37,6 @@ app.use('/api/payments/', require('./routes/paymentRoutes'));
 // check for errors
 app.use(errorHandler)
 
-// Serve the React app for any other requests
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-});
 
 
 
