@@ -1,7 +1,5 @@
 import Detailheader from "./Detailheader"
-import InvoiceUpload from "./InvoiceUpload"
 import OrdersTable from "./OrdersTable"
-import Shipping from "./Shipping"
 import TotalBill from "./TotalBill"
 
 const ViewOrderDetail = () => {
@@ -13,9 +11,6 @@ const ViewOrderDetail = () => {
                         <div className="card">
                             <Detailheader/>
                             <hr />
-                            <Shipping/>
-                            <hr />
-                            <InvoiceUpload/>
                             <OrdersTable/>
                             <TotalBill/>
                         </div>

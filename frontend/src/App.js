@@ -25,6 +25,9 @@ import ViewOrderDetail from './Components/order/ViewDetails/ViewOrderDetail';
 import RefundMain from './Components/Refund/RefundMain';
 import Store from './Components/Store/Store';
 import SpecificProduct from './Components/Store/ShowProducts/SpecificProduct';
+import ViewShipping from './Components/shipping/ViewShipping';
+import Upload from './Components/InvoiceUpload/Upload';
+
 function App() {
   return (
     <>
@@ -60,7 +63,9 @@ function App() {
           <Route path='/user/addproduct' element={<AddProdMain/>}/>
           <Route path='/user/order' element={<Order/>}/>
           <Route path='/user/orderdetail' element={<ViewOrderDetail/>}/>
-          <Route path='/user/refund' element={<RefundMain/>}/>
+          <Route path='/user/order/refund' element={<RefundMain/>}/>
+          <Route path='/user/order/shipping' element={<ViewShipping/>}/>
+          <Route path='/user/order/uploadinvoice' element={<Upload/>}/>
         </Route>
         
         {/* store */}
