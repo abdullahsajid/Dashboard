@@ -8,8 +8,18 @@ import { getProducts } from '../../../features/products/productSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Spinner from '../../Spinner/Spinner';
 import { reset } from '../../../features/order/orderSlice';
+const data = [
+  {
+    _id:1,
+    product:"Hp laptop",
+    price:"150000",
+    status:"Paid",
+    user:"Hamza",
+    action:<View/>
+  }
+]
 const Ordertable = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [prod, setProd] = useState([]);
   const {orders,isLoading,isError,isSuccess,message} = useSelector(state=>state.order)
   const {products} = useSelector(state=>state.product)
@@ -21,7 +31,7 @@ const Ordertable = () => {
     }
     dispatch(getOrders())
     dispatch(getProducts())
-    setData(orders);
+    // setData(orders);
     setProd(products);
     
     dispatch(reset())

@@ -19,7 +19,7 @@ const Shipping = () => {
             </div>
             <div className="col-12 mb-3">
                 <div>
-                    <label htmlFor="courierurl" className="mb-3 fs-5">Courier URL:  </label>
+                    <label htmlFor="courierurl" className="mb-3 fs-5">Courier Address:  </label>
                 </div>
                 <input type="url" name="courierurl" id="courierurl" className="bank-input w-100" />
             </div>
