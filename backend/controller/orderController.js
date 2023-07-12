@@ -13,7 +13,7 @@ const postOrder = AsyncHandler(async (req, res) => {
     
 });
 const getOrders = AsyncHandler(async(req,res)=>{
-    const orders = await Order.find();
+    const orders = await Order.find().sort({_id:-1});
     res.json(orders);
 })
 

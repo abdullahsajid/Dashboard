@@ -71,7 +71,7 @@ const ProductTable = () => {
     { data && data.length > 0 ? (
       <div>
       <Header stock={data.length}/>
-      <MaterialReactTable columns={columns} data={data}/>
+      <MaterialReactTable columns={columns} data={products}/>
       </div>
         )
         : (
