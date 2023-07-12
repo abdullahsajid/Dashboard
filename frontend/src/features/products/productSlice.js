@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import { productService } from "./productService";
 const initialState = {
     products: [],
-    isLoading: false,
+    p_isLoading: false,
     isSuccess: false,
     isError: false,
     message: '',
@@ -32,7 +32,7 @@ export const productSlice = createSlice({
     initialState,
     reducers: {
         reset: (state) => {
-            state.isLoading = false;
+            state.p_isLoading = false;
             state.isSuccess = false;
             state.isError = false;
             state.message = '';
@@ -41,32 +41,32 @@ export const productSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(addProduct.pending, (state) => {
-                state.isLoading = true;
+                state.p_isLoading = true;
             })
             .addCase(addProduct.rejected, (state, action) => {
                 state.products = null
-                state.isLoading = false;
+                state.p_isLoading = false;
                 state.isSuccess = false;
                 state.isError = true;
                 state.message = action.payload;
             })
             .addCase(addProduct.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.p_isLoading = false;
                 state.isSuccess = true;
                 state.products.push(action.payload);
             })
             .addCase(getProducts.pending, (state) => {
-                state.isLoading = true;
+                state.p_isLoading = true;
             })
             .addCase(getProducts.rejected, (state, action) => {
                 state.products = null
-                state.isLoading = false;
+                state.p_isLoading = false;
                 state.isSuccess = false;
                 state.isError = true;
                 state.message = action.payload;
             })
             .addCase(getProducts.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.p_isLoading = false;
                 state.isSuccess = true;
                 state.products = action.payload;
             })

@@ -1,5 +1,29 @@
 
+import React, { useEffect, useState } from 'react';
+
 const InvoiceUpload = () => {
+  const [photo, setPhoto] = useState(null);
+    const [photoPreview, setPhotoPreview] = useState(null);
+  // handle the change
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        const img = URL.createObjectURL(file);
+        setPhotoPreview(img);
+        setPhoto(file);
+    };
+  // handle the cloud upload
+    const imageUpload = async () => {
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('upload_preset', 'vgvxg0kj');
+        let res = await fetch('https://api.cloudinary.com/v1_1/djo5zsnlq/image/upload', {
+            method: 'post',
+            body: formData
+        })
+        const myImage = await res.json();
+        return myImage.url;
+
+    }
   return (
     <form className="row p-24">
         <div className="col-12 mb-3">
