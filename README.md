@@ -1,5 +1,7 @@
 ### Progress 
-    complete Dashboard, user management, category management, product management, order management and developing dummy store
+    complete Dashboard, user management, category management, product management,
+    order management and developing dummy store
+    
 ### UI library
     react bootstrap 
 ### Dashboard
