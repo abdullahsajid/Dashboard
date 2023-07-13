@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import avatar from '../../../../images/avatar.png'
 const ProfileView = () => {
     return (
@@ -14,7 +15,7 @@ const ProfileView = () => {
                 </div>
                 <div style={{ overflow: "hidden !important", overflowAnchor: "none" }}>
                     <hr style={{marginBottom:"0"}}/>
-                    <a href="" className='items'>
+                    <Link to='/user/profile' className='items'>
                         <div className='items-childOne'>
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
                                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0-8 0M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
@@ -23,8 +24,8 @@ const ProfileView = () => {
                         <div className='items-childTwo'>
                             <div className='color-78' style={{ fontSize: "1.1rem", fontWeight: "400" }}>Profile</div>
                         </div>
-                    </a>
-                    <a href="" className='items'>
+                    </Link>
+                    <Link to='/user/settings' className='items'>
                         <div className='items-childOne'>
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" tag="i" width="1em" height="1em" viewBox="0 0 24 24">
                                 <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37c1 .608 2.296.07 2.572-1.065z"></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0"></path></g></svg>
@@ -32,7 +33,7 @@ const ProfileView = () => {
                         <div className='items-childTwo'>
                             <div className='color-78' style={{ fontSize: "1.1rem", fontWeight: "400" }}>Settings</div>
                         </div>
-                    </a>
+                    </Link>
                     <hr style={{margin:0}}/>
                     <a href="" className='items'>
                         <div className='items-childOne'>
