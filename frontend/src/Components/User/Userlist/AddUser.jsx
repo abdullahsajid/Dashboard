@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { FormControl, Select, MenuItem, TextField } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewUser } from '../../../features/auth/authSlice';
+import { addNewUser,reset } from '../../../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
 import { toast } from 'react-toastify';
@@ -38,11 +38,12 @@ const AddUser = () => {
     // handle the 3rd party
     useEffect(() => {
         if (isError) {
-            toast(message);
+            alert("Not Authorized");
         }
         if (isSuccess) {
-            toast('Recor Inserted Successfully');
+            alert('Record Inserted Successfully');
         }
+        dispatch(reset())
     }, [isError, message, isSuccess]);
     // initialze the dispatch function
     const dispatch = useDispatch();

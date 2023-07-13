@@ -1,6 +1,21 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import ContentSpinner from '../../../../Spinner/ContentSpinner';
+import { getSales } from '../../../../../features/order/orderSlice';
 
+import { useDispatch, useSelector } from 'react-redux';
 const Saleoverview = () => {
+    const dispatch = useDispatch();
+    const { sales,isError,isLoading } = useSelector(state => state.order);
+    useEffect(() => {
+        if (isError) {
+            alert("An Error Occured");
+        }else{
+            dispatch(getSales())
+        }
+    },[])
+    if(isLoading){
+        return <ContentSpinner/>
+    }
     return (
         <div className='col-sm-12 col-md-6 col-lg-6 mb-4'>
             <div className='card h-100'>
@@ -9,7 +24,7 @@ const Saleoverview = () => {
                         <span class="text-sm text-disabled">Sales Overview</span>
                         <span class="text-success">+18.2%</span>
                     </div>
-                    <h4 class="text-h4"> PKR 42.5k </h4>
+                    <h4 class="text-h4"> PKR {sales/1000}k </h4>
                 </div>
                 <div className='pad' style={{ paddingTop: '0' }}>
                     <div className='row'>

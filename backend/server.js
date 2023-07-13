@@ -36,6 +36,8 @@ app.use('/api/order/', require('./routes/orderRoutes'))
 app.use('/api/payments/', require('./routes/paymentRoutes'));
 // handle the payment 
 app.use('/api/shipping/', require('./routes/shippingRoutes'));
+// handle the payment 
+app.use('/api/invoice/', require('./routes/invoiceRoutes'));
 // check for errors
 app.use(errorHandler)
 

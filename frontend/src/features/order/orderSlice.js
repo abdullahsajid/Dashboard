@@ -8,6 +8,7 @@ const initialState = {
     isSuccess: false,
     isError: false,
     message: '',
+    sales:''
 }
 
 export const postOrder = createAsyncThunk('order/post', async (order, thunkApi) => {
@@ -23,6 +24,14 @@ export const postOrder = createAsyncThunk('order/post', async (order, thunkApi) 
 export const getOrders = createAsyncThunk('order/get', async (_,thunkApi) => {
     try {
         return await orderService.getOrders();
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkApi.rejectWithValue(message);
+    }
+})
+export const getSales = createAsyncThunk('order/sales', async (_,thunkApi) => {
+    try {
+        return await orderService.getSales();
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkApi.rejectWithValue(message);
@@ -116,6 +125,21 @@ export const orderSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.orders = action.payload;
+            })
+        .addCase(getSales.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getSales.rejected, (state, action) => {
+                state.orders = null
+                state.isLoading = false;
+                state.isSuccess = false;
+                state.isError = true;
+                state.message = action.payload;
+            })
+            .addCase(getSales.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.sales = action.payload;
             })
     }
 })

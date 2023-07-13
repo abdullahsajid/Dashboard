@@ -1,72 +1,39 @@
-import React, { useMemo } from 'react'
+import React, { useMemo,useEffect } from 'react'
 import { MaterialReactTable } from 'material-react-table'
 import { Link } from 'react-router-dom';
 import UpdateorDel from '../../../User/Userlist/UpdateorDel';
-const data = [
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    },
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    },
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    },
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    },
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    },
-    {
-        id:"#5632",
-        status:"paid",
-        total:"PKR 520",
-        issueDate:"2023-6-5",
-        action:<UpdateorDel/>
-    }
-  ];
+import { getInvoice, reset } from '../../../../features/invoice/invoiceSlice';
+import { useDispatch, useSelector } from 'react-redux';
 const Tablee = () => {
+  const dispatch = useDispatch()
+  const {i_isLoading,invoice,isError,message} = useSelector(state=>state.invoice)
+  useEffect(() => {
+    if (isError) {
+      alert('An Error Occured')
+    }
+    dispatch(getInvoice());
+    dispatch(reset());
+  },[])
     const columns = useMemo(
         () => [
           {
-            accessorKey: "id",
+            accessorKey: "_id",
             header: "#ID",
             muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
           },
           {
-            accessorKey:'status',
-            header: "STATUS",
-            muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
-          },
-          {
-            accessorKey:'total',
+            accessorKey:'cost',
             header: "TOTAL",
             muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
           },
           {
             accessorKey:'issueDate',
             header: "ISSUE-DATE",
+            muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
+          },
+          {
+            accessorKey:'dueDate',
+            header: "DUE-DATE",
             muiTableHeadCellProps: {sx:{color:"rgba(47,43,61,.78)"}}
           },
           {
@@ -92,7 +59,7 @@ const Tablee = () => {
                     </Link>
                 </div>
             </div>
-            <MaterialReactTable columns={columns} data={data}/>
+            <MaterialReactTable columns={columns} data={invoice}/>
         </div>
     </div>
   )

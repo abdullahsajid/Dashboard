@@ -22,12 +22,19 @@ const updateStatus = async (order_id, status) => {
 }
 
 
+const getSales = async () => {
+    const response = await axios.get(`${URL}/get-total`);
+    return response.data;
+}
+
+
+
 const orderService = {
     postOrder,
     getOrders,
     getSingleOrder,
-    updateStatus
-    
+    updateStatus,
+    getSales
 
 }
 

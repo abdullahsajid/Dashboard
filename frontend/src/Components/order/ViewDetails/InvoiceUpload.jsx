@@ -30,7 +30,10 @@ const InvoiceUpload = () => {
             <div>
                 <label htmlFor="invoice" className="mb-3 fs-5 fw-bold">Invoice Upload:</label>
             </div>
-            <input type="file" className="bank-input" />
+            <input onChange={handleImage} type="file" className="bank-input" />
+            <div className="image w-25 mb-3">
+              <img width="100%" name="image" src={photoPreview ? photoPreview : ''} alt="" />
+          </div>
         </div>
         <div className="col-12 mb-3">
             <button className="btn btn-dark">Upload</button>

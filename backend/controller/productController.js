@@ -19,6 +19,8 @@ const getProducts = AsyncHandler(async(req,res)=>{
     res.json(products);
 })
 
+
+
 module.exports = {
     addProduct,
     getProducts
