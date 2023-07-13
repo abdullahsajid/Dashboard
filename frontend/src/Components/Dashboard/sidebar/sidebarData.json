@@ -26,7 +26,17 @@
         "child":[
             {
                 "title":"Refund",
-                "path":"/user/refund",
+                "path":"/user/order/refund",
+                "icon":"bi bi-dot"
+            },
+            {
+                "title":"Shipping",
+                "path":"/user/order/shipping",
+                "icon":"bi bi-dot"
+            },
+            {
+                "title":"Invoice Upload",
+                "path":"/user/order/uploadinvoice",
                 "icon":"bi bi-dot"
             }
         ]
