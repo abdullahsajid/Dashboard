@@ -1,6 +1,7 @@
 ### Progress 
-    complete Dashboard, user management, category management, product management,
+    Complete => Dashboard, user management, category management, product management,
     order management and developing dummy store
+    _new Component : User setting & user profile
     
 ### UI library
     react bootstrap 
