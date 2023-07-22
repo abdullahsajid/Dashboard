@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext,useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
@@ -30,33 +30,32 @@ import Upload from './Components/InvoiceUpload/Upload';
 import ProfileView from './Components/User/UserProfile/ProfileView';
 import Settings from './Components/User/UserSetting/Settings';
 
+export const theme = createContext()
 function App() {
+  const[dark,setDark] = useState(false)
+  const toggleMode = () => {
+    setDark(() => !dark)
+  }
   return (
     <>
       <BrowserRouter>
+      <theme.Provider value={{dark,toggleMode}}>
       <Routes>
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/register' element={<Signup />} />
         <Route exact path='/forget-password' element={<Main />} />
 
-        <Route exact path='/dashboard' element={<Dashboard />}>
-          <Route index element={<MainContent />} />
-          <Route path='/dashboard/report' element={<Report />} />
-          <Route path='/dashboard/invoice' element={<InvoiceTable />} />
-          <Route path='/dashboard/add' element={<MainInvoice />} />
-        </Route>
-        
+          <Route exact path='/dashboard' element={<Dashboard />}>
+            <Route index element={<MainContent />} />
+            <Route path='/dashboard/report' element={<Report />} />
+            <Route path='/dashboard/invoice' element={<InvoiceTable />} />
+            <Route path='/dashboard/add' element={<MainInvoice />} />
+          </Route>
+
         <Route exact path='/' element={<Login/>}/>
         <Route exact path='/register' element={<Signup/>}/>
         <Route exact path='/forget-password' element={<Main/>}/>
         <Route exact path='/reset-password/:token' element={<ResetMain/>}/>
-
-        <Route exact path='/dashboard' element={<Dashboard/>}>
-          <Route index element={<MainContent/>}/>
-          <Route path='/dashboard/report' element={<Report/>}/>
-          <Route path='/dashboard/invoice' element={<InvoiceTable/>}/>
-          <Route path='/dashboard/add' element={<MainInvoice/>}/>
-        </Route>
 
         <Route exact path='/user' element={<UserList/>}>
           <Route index element={<List/>}/>
@@ -81,6 +80,7 @@ function App() {
         </Route>
         {/* <Route path='/*' element={<ToastContainer />} /> */}
         </Routes>
+        </theme.Provider>
       </BrowserRouter>
       {/* <ToastContainer limit={1} /> */}
     </>

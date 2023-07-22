@@ -1,3 +1,4 @@
+
 .header-layout{
     inset-block-start: 1rem;
     position: sticky;
@@ -38,6 +39,9 @@
     margin-right: 1rem;
     background-color: #fff;
 }
+.search-icon svg{
+    stroke: #000;
+}
 .shortkey{
     border: thin solid rgba(47,43,61,0.16);
     border-radius: 6px;
@@ -64,6 +68,7 @@
     width: 26px;
     height: 26px;
     font-size: 26px;
+    stroke: #000;
 }
 .avatar-img{
     width: 38px;

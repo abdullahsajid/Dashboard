@@ -9,7 +9,7 @@ const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
     user: user ? user : null,
-    isLoading: false,
+    u_isLoading: false,
     isSuccess: false,
     isError: false,
     message: '',
@@ -85,6 +85,14 @@ export const getAllUsers = createAsyncThunk('auth/get-all-user', async (_, thunk
         return thunkApi.rejectWithValue(message);
     }
 });
+export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
+    try {
+        return authService.logout();
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkApi.rejectWithValue(message);
+    }
+});
 
 
 export const authSlice = createSlice({
@@ -92,7 +100,7 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         reset: (state) => {
-            state.isLoading = false;
+            state.u_isLoading = false;
             state.isSuccess = false;
             state.isError = false;
             state.message = '';
@@ -101,80 +109,93 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerUser.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(registerUser.rejected, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = false;
                 state.isError = true;
                 state.message = action.payload;
             })
             .addCase(registerUser.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload;
             })
+            .addCase(logout.pending, (state) => {
+                state.u_isLoading = true;
+            })
+            .addCase(logout.rejected, (state) => {
+                state.u_isLoading = false;
+                state.isSuccess = false;
+                state.isError = true;
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.u_isLoading = false;
+                state.isSuccess = true;
+                state.user = null;
+            })
             .addCase(loginUser.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.user = null
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isError = true;
                 state.message = action.payload;
             })
             .addCase(loginUser.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload;
             })
             .addCase(sendResetMail.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(sendResetMail.rejected, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isError = true;
                 state.message = 'Invalid email address'
             })
             .addCase(sendResetMail.fulfilled, (state) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
             })
             .addCase(resetPassword.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(resetPassword.rejected, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isError = true;
                 state.message = 'An Error Occured'
             })
             .addCase(resetPassword.fulfilled, (state) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
             })
             .addCase(addNewUser.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(addNewUser.rejected, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isError = true;
                 state.message = action.payload
             })
             .addCase(addNewUser.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
                 state.allUsers.push(action.payload);
             })
             .addCase(getAllUsers.pending, (state) => {
-                state.isLoading = true;
+                state.u_isLoading = true;
             })
             .addCase(getAllUsers.rejected, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isError = true;
                 state.message = action.payload
             })
             .addCase(getAllUsers.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.u_isLoading = false;
                 state.isSuccess = true;
                 state.allUsers = action.payload;
             })

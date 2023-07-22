@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3001/api/users';
+const URL = `${process.env.REACT_APP_BASE_URL}/users`;
 
 const registerUser = async (userData) => {
     const response = await axios.post(`${URL}/register`, userData);
@@ -47,13 +47,18 @@ const resetPassword = (token,id) => {
 }
 
 
+const logout = () => {
+    localStorage.removeItem('user');
+}
+
 const authService = {
     registerUser,
     loginUser,
     sendResetMail,
     addNewUser,
     getAllUsers,
-    resetPassword
+    resetPassword,
+    logout
 }
 
 export default authService;

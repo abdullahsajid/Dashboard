@@ -1,8 +1,20 @@
 /* *{
   border: 1px solid red;
 } */
+.dark{
+  background-color: #2F3349 !important;
+}
+.svg-dark{
+  stroke: #ACB0CC !important;
+}
+.txt{
+  color: #ACB0CC !important;
+}
 .gray{
   color: #726F7B !important;
+}
+.icon-color{
+  color: #ACB0CC !important;
 }
 .heading{
   color: #5D5A68;
