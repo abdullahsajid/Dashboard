@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllUsers } from '../../../features/auth/authSlice';
 import { toast } from 'react-toastify';
 import Spinner from '../../Spinner/Spinner';
+import UpdateorDel from './UpdateorDel';
 const List = () => {
   const [data, setData] = useState([]);
   const { isLoading, isError, allUsers, message } = useSelector(state => state.auth);
@@ -23,7 +24,8 @@ const List = () => {
     if (allUsers.length > 0) {
       const modifiedData = allUsers.map(user => ({
         ...user,
-        role: getRoleName(user.role)
+        role: getRoleName(user.role),
+        action:<UpdateorDel/>
       }));
       setData(modifiedData);
     }
@@ -63,12 +65,10 @@ const List = () => {
         renderCell: ({ rowData }) => <span>{rowData.role}</span>
       },
       {
-        accessorKey: 'update',
+        accessorKey: 'action',
         header: 'UPDATE',
         muiTableHeadCellProps: { sx: { color: 'rgba(47, 43, 61, .78)' } },
-        renderCell: ({ rowData }) => (
-          <button>UPDATE</button>
-        )
+        renderCell: ({ rowData }) => <span>{rowData.action}</span> 
       },
     ],
     []

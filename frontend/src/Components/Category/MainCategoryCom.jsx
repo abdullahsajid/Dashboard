@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { getCategory } from '../../features/categories/categorySlice';
 import Spinner from '../Spinner/Spinner';
 
+
 const MainCategoryCom = () => {
   const [isLoading,setIsLoading] = useState(true)
   const { categories , isError, isSuccess, message } = useSelector(state => state.category);
@@ -38,6 +39,7 @@ const MainCategoryCom = () => {
         accessorKey: 'action',
         header: 'ACTIONS',
         muiTableHeadCellProps: { sx: { color: 'rgba(47,43,61,.78)' } },
+        renderCell: ({ rowData }) => <UpdateorDel />
       },
     ],
     []

@@ -31,7 +31,7 @@ const Login = () => {
                     <Banner loginUpImg={loginImg}/>
                 </Col>
                 <Col lg={4}>
-                    <LoginForm heading={'Welcome to Vuexy! 👋🏻'} title={'Please sign-in to your account and start the adventure'}/>
+                    <LoginForm heading={"Welcome to Khan Copper's! 👋🏻"} title={'Please sign-in to your account and start the adventure'}/>
                 </Col>
             </Row>
     </div>

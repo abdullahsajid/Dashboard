@@ -6,42 +6,42 @@ const data = [
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     },
     {
         id:"#5632",
         status:"paid",
-        total:"PKR 520",
+        total:"₹ 520",
         issueDate:"2023-6-5",
         action:<UpdateorDel/>
     }
